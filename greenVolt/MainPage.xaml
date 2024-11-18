@@ -3,33 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="greenVolt.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+    <Grid>
+        <Image Source="main_background.png" Aspect="AspectFill" />
+        <ScrollView>
+            <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25">
+                <Image
+                    Source="logo.png"
+                    HeightRequest="185"
+                    Aspect="AspectFit"
+                    SemanticProperties.Description="GreenVolt Logo" />
 
-            <Label
-                Text="Hello, World!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+                <Label
+                    Text="Energizando um amanhã mais verde!"
+                    Style="{StaticResource Headline}"
+                    SemanticProperties.HeadingLevel="Level1" 
+                    TextColor="{StaticResource Primary}"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Margin="0,250,0,0" />
 
-            <Button 
-                x:Name="loginButton" 
-                Text="Login" 
-                Clicked="loginButton_Clicked" 
-                HorizontalOptions="Fill"/>
+                <Button 
+                    x:Name="loginButton" 
+                    Text="Login" 
+                    Clicked="loginButton_Clicked" 
+                    HorizontalOptions="Fill"
+                    FontAttributes="Bold"
+                    WidthRequest="200"
+                    Margin="0,20,0,0" />
 
-            <Button
-                x:Name="CreateAccountButton"
-                Text="Criar Conta" 
-                Clicked="CreateAccountButton_Clicked"
-                HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
-
+                <Button
+                    x:Name="CreateAccountButton"
+                    Text="Criar Conta"
+                    TextColor="{StaticResource Primary}"
+                    Clicked="CreateAccountButton_Clicked"
+                    HorizontalOptions="Fill" 
+                    WidthRequest="200"
+                    FontAttributes="Bold"
+                    BackgroundColor="{StaticResource BlueColor}" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

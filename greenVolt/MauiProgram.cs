@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-
+using Sharpnado.MaterialFrame;
 namespace greenVolt
 {
     public static class MauiProgram
@@ -9,6 +9,7 @@ namespace greenVolt
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseSharpnadoMaterialFrame(loggerEnable: false)
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
