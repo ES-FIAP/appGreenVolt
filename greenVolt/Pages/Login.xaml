@@ -15,29 +15,29 @@
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HeightRequest" Value="50" />
             </Style>
+            <Style TargetType="Frame" x:Key="MyFrameStyle">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Frame
-            CornerRadius="10"
-            BorderColor="#80FFFFFF"
-            BackgroundColor="#CC314752"
-            WidthRequest="250"
-            HeightRequest="280"
-            HasShadow="False"
-            Padding="10"
-            Margin="10">
-            <StackLayout Spacing="10">
-                <Label Text="Bem vindo de volta" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
-                <Label Text="Entre com sua conta!" HorizontalOptions="Center" TextColor="White"/>
-                <Entry Placeholder="Nome" Style="{StaticResource CustomEntryStyle}"/>
-                <Entry Placeholder="Senha" IsPassword="True" Style="{StaticResource CustomEntryStyle}" />
-                <Button Text="Entrar com o Google" WidthRequest="250" Margin="0,20,0,0" BackgroundColor="White" TextColor="Black"/>
-                <Button Text="Entrar" WidthRequest="200" Margin="0,20,0,0" BackgroundColor="DarkGreen" TextColor="White"/>
-                <Button Text="Não tem uma conta? Clique aqui" BackgroundColor="Transparent" TextColor="DarkGreen" />
-            </StackLayout>
-        </Frame>
-    </VerticalStackLayout>
-
-
+    <Grid>
+        <Image Source="background_register.png" Aspect="AspectFill" />
+        <VerticalStackLayout>
+            <Frame Style="{StaticResource MyFrameStyle}">
+                <StackLayout Spacing="10" BackgroundColor="#66386140">
+                    <Label Text="Bem vindo de volta" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" FontSize="Title" Margin="0,20,0,0"/>
+                    <Label Text="Entre com sua conta!" HorizontalOptions="Center" TextColor="White"/>
+                    <Entry Placeholder="Nome" Style="{StaticResource CustomEntryStyle}"/>
+                    <Entry Placeholder="Senha" IsPassword="True" Style="{StaticResource CustomEntryStyle}" />
+                    <Button Text="Entrar com o Google" WidthRequest="250" Margin="0,20,0,0" BackgroundColor="White" TextColor="Black"/>
+                    <Button Text="Entrar" WidthRequest="200" Margin="0,20,0,0" BackgroundColor="DarkGreen" TextColor="White"/>
+                    <Button Text="Não tem uma conta? Clique aqui" BackgroundColor="Transparent" TextColor="DarkGreen" />
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
