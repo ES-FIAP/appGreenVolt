@@ -57,6 +57,13 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\AppIcon\iconair.png" />
+	  <MauiImage Include="Resources\AppIcon\icon_google.png" />
+	  <MauiImage Include="Resources\AppIcon\iconsum.png" />
+	  <MauiImage Include="Resources\AppIcon\iconwater.png" />
+	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\sharedLib\sharedLib.csproj" />
 	</ItemGroup>

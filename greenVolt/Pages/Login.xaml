@@ -25,17 +25,22 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid>
-        <Image Source="background_register.png" Aspect="AspectFill" />
-        <VerticalStackLayout>
+        <Image Source="background_login.png" Aspect="AspectFill" />
+        <VerticalStackLayout VerticalOptions="Center">
             <Frame Style="{StaticResource MyFrameStyle}">
                 <StackLayout Spacing="10" BackgroundColor="#66386140">
                     <Label Text="Bem vindo de volta" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" FontSize="Title" Margin="0,20,0,0"/>
                     <Label Text="Entre com sua conta!" HorizontalOptions="Center" TextColor="White"/>
                     <Entry Placeholder="Nome" Style="{StaticResource CustomEntryStyle}"/>
                     <Entry Placeholder="Senha" IsPassword="True" Style="{StaticResource CustomEntryStyle}" />
-                    <Button Text="Entrar com o Google" WidthRequest="250" Margin="0,20,0,0" BackgroundColor="White" TextColor="Black"/>
-                    <Button Text="Entrar" WidthRequest="200" Margin="0,20,0,0" BackgroundColor="DarkGreen" TextColor="White"/>
-                    <Button Text="Não tem uma conta? Clique aqui" BackgroundColor="Transparent" TextColor="DarkGreen" />
+                    <Button ImageSource="icon_google.png" Text="Entrar com o Google" WidthRequest="250" Margin="0,20,0,0" BackgroundColor="White" TextColor="Black" />
+
+                    <Button Text="Entrar" WidthRequest="200" Margin="0,20,0,0" BackgroundColor="#51855B" TextColor="White"/>
+                    <FlexLayout Direction="Row" AlignContent="Center" AlignItems="Center" HorizontalOptions="Center">
+                        <Label Text="Não tem uma conta? " HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="White"/>
+                        <Button Text="Clique aqui" BackgroundColor="Transparent" TextColor="Yellow" HorizontalOptions="EndAndExpand" VerticalOptions="Center" />
+                    </FlexLayout>
+                   
                 </StackLayout>
             </Frame>
         </VerticalStackLayout>
