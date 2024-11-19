@@ -1,22 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:rv="http://sharpnado.com"
              x:Class="greenVolt.Pages.Login">
     <ContentPage.Resources>
-    <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary />
-        </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
+        <ResourceDictionary>
+            <Style TargetType="Entry" x:Key="CustomEntryStyle">
+                <Setter Property="WidthRequest" Value="250" />
+                <Setter Property="BackgroundColor" Value="#DAE5DD" />
+                <Setter Property="TextColor" Value="#386140" />
+                <Setter Property="PlaceholderColor" Value="#386140" />
+                <Setter Property="FontFamily" Value="Josefin Sans" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+        </ResourceDictionary>
     </ContentPage.Resources>
-    <rv:MaterialFrame
-        Margin="0,16"
-        Padding="16,10"
-        CornerRadius="{DynamicResource DynamicCornerRadius}"
-        MaterialTheme="{DynamicResource DynamicMaterialTheme}">
-        <Label Text="Conteúdo do Card"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" />
-    </rv:MaterialFrame>
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Frame
+            CornerRadius="10"
+            BorderColor="#80FFFFFF"
+            BackgroundColor="#CC314752"
+            WidthRequest="250"
+            HeightRequest="280"
+            HasShadow="False"
+            Padding="10"
+            Margin="10">
+            <StackLayout Spacing="10">
+                <Label Text="Bem vindo de volta" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
+                <Label Text="Entre com sua conta!" HorizontalOptions="Center" TextColor="White"/>
+                <Entry Placeholder="Nome" Style="{StaticResource CustomEntryStyle}"/>
+                <Entry Placeholder="Senha" IsPassword="True" Style="{StaticResource CustomEntryStyle}" />
+                <Button Text="Entrar com o Google" WidthRequest="250" Margin="0,20,0,0" BackgroundColor="White" TextColor="Black"/>
+                <Button Text="Entrar" WidthRequest="200" Margin="0,20,0,0" BackgroundColor="DarkGreen" TextColor="White"/>
+                <Button Text="Não tem uma conta? Clique aqui" BackgroundColor="Transparent" TextColor="DarkGreen" />
+            </StackLayout>
+        </Frame>
+    </VerticalStackLayout>
+
+
 </ContentPage>

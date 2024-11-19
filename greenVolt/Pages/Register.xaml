@@ -3,10 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="greenVolt.Pages.Register"
              Title="Register">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry" x:Key="CustomEntryStyle">
+                <Setter Property="WidthRequest" Value="250" />
+                <Setter Property="BackgroundColor" Value="#DAE5DD" />
+                <Setter Property="TextColor" Value="#386140" />
+                <Setter Property="PlaceholderColor" Value="#386140" />
+                <Setter Property="FontFamily" Value="Josefin Sans" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Image Source="background_register.png" Aspect="AspectFill" />
+        <VerticalStackLayout>
+            <Entry Placeholder="Nome" Style="{StaticResource CustomEntryStyle}" />
+            <Entry Placeholder="Sobrenome" Style="{StaticResource CustomEntryStyle}"/>
+            <Entry Placeholder="Telefone" Keyboard="Numeric" Style="{StaticResource CustomEntryStyle}" />
+            <Entry Placeholder="Criar senha" IsPassword="True" Style="{StaticResource CustomEntryStyle}" />
+            <Button Text="Criar conta" WidthRequest="250" Margin="0,20,0,0"/>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

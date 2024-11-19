@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="greenVolt.Components.CompanyCard">
+    <Frame
+    CornerRadius="10"
+    BorderColor="Transparent"
+    BackgroundColor="#FFFFFF"
+    HasShadow="True"
+    Margin="10"
+    Padding="0"
+    HeightRequest="150"
+    WidthRequest="350">
+        <Grid>
+            <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+
+            <Grid BackgroundColor="#66000000">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="Auto" />
+
+                </Grid.RowDefinitions>
+
+                <VerticalStackLayout Padding="10" Grid.Row="0" VerticalOptions="End">
+                    <Label Text="{Binding Name}" 
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   TextColor="#FFFFFF" />
+                    <Label Text="{Binding Description}" 
+                   FontSize="14" 
+                   TextColor="#FFFFFF" />
+                </VerticalStackLayout>
+
+                <StackLayout Grid.Row="1"
+                     Orientation="Horizontal"
+                     VerticalOptions="End"
+                     Padding="10"
+                     BackgroundColor="#FFFFFF"
+                     Opacity="0.9">
+                    <Label Text="{Binding Price}"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#008000" />
+                    <Label Text="{Binding BadgeText}"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="#FF0000"
+                   BackgroundColor="#FFD700"
+                   Margin="10,0,0,0"
+                   Padding="5" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </Frame>
+</ContentView>
