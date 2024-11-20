@@ -17,10 +17,10 @@
             </Style>
             <Style TargetType="Frame" x:Key="MyFrameStyle">
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="CornerRadius" Value="20" />
-                <Setter Property="Margin" Value="10" />
+                <Setter Property="Margin" Value="20" />
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="HasShadow" Value="True" />
+                <Setter Property="Padding" Value="0" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -28,17 +28,16 @@
         <Image Source="background_login.png" Aspect="AspectFill" />
         <VerticalStackLayout VerticalOptions="Center">
             <Frame Style="{StaticResource MyFrameStyle}">
-                <StackLayout Spacing="10" BackgroundColor="#66386140">
+                <StackLayout BackgroundColor="#66386140">
                     <Label Text="Bem vindo de volta" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" FontSize="Title" Margin="0,20,0,0"/>
-                    <Label Text="Entre com sua conta!" HorizontalOptions="Center" TextColor="White"/>
+                    <Label Text="Entre com sua conta!" HorizontalOptions="Center" TextColor="White" Margin="0,15,0,15"/>
                     <Entry Placeholder="Nome" Style="{StaticResource CustomEntryStyle}"/>
                     <Entry Placeholder="Senha" IsPassword="True" Style="{StaticResource CustomEntryStyle}" />
                     <Button ImageSource="icon_google.png" Text="Entrar com o Google" WidthRequest="250" Margin="0,20,0,0" BackgroundColor="White" TextColor="Black" />
-
-                    <Button Text="Entrar" WidthRequest="200" Margin="0,20,0,0" BackgroundColor="#51855B" TextColor="White"/>
-                    <FlexLayout Direction="Row" AlignContent="Center" AlignItems="Center" HorizontalOptions="Center">
+                    <Button Text="Entrar" Clicked="Button_Clicked_login" WidthRequest="200" Margin="0,20,0,0" BackgroundColor="#51855B" TextColor="White"/>
+                    <FlexLayout Direction="Row" AlignContent="Center" AlignItems="Center" HorizontalOptions="Center" Margin="0,15,0,15">
                         <Label Text="Não tem uma conta? " HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="White"/>
-                        <Button Text="Clique aqui" BackgroundColor="Transparent" TextColor="Yellow" HorizontalOptions="EndAndExpand" VerticalOptions="Center" />
+                        <Button Text="Clique aqui" Clicked="Button_Clicked_havent_account" BackgroundColor="Transparent" TextColor="Yellow" HorizontalOptions="EndAndExpand" VerticalOptions="Center" />
                     </FlexLayout>
                    
                 </StackLayout>

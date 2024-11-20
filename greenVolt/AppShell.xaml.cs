@@ -1,4 +1,6 @@
-﻿namespace greenVolt
+﻿using greenVolt.Pages;
+
+namespace greenVolt
 {
     public partial class AppShell : Shell
     {

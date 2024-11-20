@@ -1,6 +1,4 @@
-﻿using greenVolt.Pages;
-
-namespace greenVolt
+﻿namespace greenVolt.Pages
 {
     public partial class MainPage : ContentPage
     {

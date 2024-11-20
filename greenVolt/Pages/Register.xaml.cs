@@ -6,4 +6,9 @@ public partial class Register : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void Button_ClickedHaveAccount(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Login());
+    }
 }
