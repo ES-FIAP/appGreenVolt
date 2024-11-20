@@ -1,4 +1,6 @@
-﻿namespace greenVolt
+﻿using MauiIcons;
+
+namespace greenVolt
 {
     public partial class App : Application
     {

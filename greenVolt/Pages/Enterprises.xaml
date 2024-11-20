@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:greenVolt.Components"
+             xmlns:icons="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              x:Class="greenVolt.Pages.Enterprises"
              Title="Enterprises">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        
+    <VerticalStackLayout>
+        <FlexLayout Direction="Row" AlignContent="Center" AlignItems="Center" HorizontalOptions="Center" Margin="0,15,0,15">
+            <Label Text="Empresas" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green" FontSize="Title" Margin="0,20,0,0"/>
+            <Button Text="" WidthRequest="250" Margin="0,20,0,0" BackgroundColor="#D9D9D9" TextColor="Green">
+                <Button.ImageSource>
+                    <FontImageSource 
+            FontFamily="MaterialIcons" 
+            Glyph="{icons:Material Icon=Home}" 
+            Color="Green" 
+            Size="24" />
+                </Button.ImageSource>
+            </Button>
+        </FlexLayout>
+        <components:CompanyCard 
+            Name="NeoEnergia"
+            Description="Energia solar para sua casa"
+            Price="R$ 500,00"
+            BadgeText="Promoção"
+            ImageUrl="mitra_tech.png" />
     </VerticalStackLayout>
 </ContentPage>
