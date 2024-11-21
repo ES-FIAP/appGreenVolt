@@ -1,0 +1,19 @@
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:greenVolt.Models"
+             xmlns:components="clr-namespace:greenVolt.Components"
+             x:Class="greenVolt.Components.ListCompanies">
+
+    <CollectionView ItemsSource="{Binding Companies}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <components:CompanyCard 
+                    Name="{Binding Name}"
+                    Description="{Binding Description}"
+                    Price="{Binding Price}"
+                    BadgeText="{Binding BadgeText}"
+                    ImageUrl="{Binding ImageUrl}" />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentView>

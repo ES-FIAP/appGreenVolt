@@ -5,25 +5,47 @@
              xmlns:icons="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              x:Class="greenVolt.Pages.Enterprises"
              Title="Enterprises">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="roundButton">
+                <Setter Property="BackgroundColor" Value="#d9d9d9" />
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <VerticalStackLayout>
-        <FlexLayout Direction="Row" AlignContent="Center" AlignItems="Center" HorizontalOptions="Center" Margin="0,15,0,15">
-            <Label Text="Empresas" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green" FontSize="Title" Margin="0,20,0,0"/>
-            <Button Text="" WidthRequest="250" Margin="0,20,0,0" BackgroundColor="#D9D9D9" TextColor="Green">
-                <Button.ImageSource>
-                    <FontImageSource 
-            FontFamily="MaterialIcons" 
-            Glyph="{icons:Material Icon=Home}" 
-            Color="Green" 
-            Size="24" />
-                </Button.ImageSource>
-            </Button>
-        </FlexLayout>
-        <components:CompanyCard 
-            Name="NeoEnergia"
-            Description="Energia solar para sua casa"
-            Price="R$ 500,00"
-            BadgeText="Promoção"
-            ImageUrl="mitra_tech.png" />
+        <Grid ColumnDefinitions="*,Auto" Margin="20,15,20,15">
+            <Label Text="Empresas" FontAttributes="Bold" TextColor="Green" FontSize="Title" Margin="0,0,0,0" HorizontalOptions="StartAndExpand"/>
+            <HorizontalStackLayout 
+            HorizontalOptions="End" 
+            VerticalOptions="Center" 
+            Spacing="10" 
+            Grid.Column="1">
+                <Button Style="{StaticResource roundButton}">
+                    <Button.ImageSource>
+                        <FontImageSource 
+                        FontFamily="MaterialIcons" 
+                        Glyph="{icons:Material Icon=Search}" 
+                        Color="Green" 
+                            Size="20"
+                        />
+                    </Button.ImageSource>
+                </Button>
+                <Button Style="{StaticResource roundButton}">
+                    <Button.ImageSource>
+                        <FontImageSource 
+                        FontFamily="MaterialIcons" 
+                        Glyph="{icons:Material Icon=Notifications}" 
+                        Color="Green" 
+                            Size="20"
+                        />
+                    </Button.ImageSource>
+                </Button>
+            </HorizontalStackLayout>
+        </Grid>
+        <components:ListCompanies Companies="{Binding Companies}" />
     </VerticalStackLayout>
 </ContentPage>

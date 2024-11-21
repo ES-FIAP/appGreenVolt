@@ -80,6 +80,9 @@
 	  <MauiXaml Update="Components\CompanyCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Components\ListCompanies.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Enterprises.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

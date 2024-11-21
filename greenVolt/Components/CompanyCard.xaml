@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="greenVolt.Components.CompanyCard">
     <Frame
-    CornerRadius="10"
+    CornerRadius="20"
     BorderColor="Transparent"
     BackgroundColor="#FFFFFF"
     HasShadow="True"
@@ -14,7 +14,7 @@
         <Grid>
             <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
 
-            <Grid BackgroundColor="#66000000">
+            <Grid BackgroundColor="Transparent">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -23,7 +23,7 @@
 
                 </Grid.RowDefinitions>
 
-                <VerticalStackLayout Padding="10" Grid.Row="0" VerticalOptions="End">
+                <VerticalStackLayout Padding="10" Grid.Row="0" VerticalOptions="End" Margin="0,70,0,10" >
                     <Label Text="{Binding Name}" 
                    FontSize="20" 
                    FontAttributes="Bold" 
@@ -33,24 +33,27 @@
                    TextColor="#FFFFFF" />
                 </VerticalStackLayout>
 
-                <StackLayout Grid.Row="1"
-                     Orientation="Horizontal"
+                <Frame Grid.Row="1"
+                             Grid.Column="1"
+ 
                      VerticalOptions="End"
-                     Padding="10"
-                     BackgroundColor="#FFFFFF"
+                     Padding="8"      
+                     WidthRequest="110"
+                     Margin="185,0,0,10"   
+                     BackgroundColor="AliceBlue"
                      Opacity="0.9">
                     <Label Text="{Binding Price}"
                    FontSize="18"
                    FontAttributes="Bold"
                    TextColor="#008000" />
-                    <Label Text="{Binding BadgeText}"
+                    <!--<Label Text="{Binding BadgeText}"
                    FontSize="12"
                    FontAttributes="Bold"
                    TextColor="#FF0000"
                    BackgroundColor="#FFD700"
                    Margin="10,0,0,0"
-                   Padding="5" />
-                </StackLayout>
+                   Padding="5" />-->
+                </Frame>
             </Grid>
         </Grid>
     </Frame>

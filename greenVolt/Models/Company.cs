@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace greenVolt.Models
 {
-    class CompanyCard
+    public class Company
     {
         public string ImageUrl { get; set; } 
         public string Name { get; set; } 
