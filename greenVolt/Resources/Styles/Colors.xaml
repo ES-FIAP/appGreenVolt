@@ -13,6 +13,7 @@
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
     <Color x:Key="AcrylicSurface">#E6E6E6</Color>
+    <Color x:Key="SecondGreen">#5D6F67</Color>
 
     <Color x:Key="AcrylicFrameBackgroundColor">#F1F1F1</Color>
 

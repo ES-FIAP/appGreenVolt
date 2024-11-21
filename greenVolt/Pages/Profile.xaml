@@ -1,12 +1,96 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:icons="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              x:Class="greenVolt.Pages.Profile"
              Title="Profile">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="mainButton">
+                <Setter Property="BackgroundColor" Value="#d9d9d9" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+            <Style TargetType="Frame" x:Key="mainFrame">
+                <Setter Property="BackgroundColor" Value="#d9d9d9" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="Padding" Value="15" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout BackgroundColor="{StaticResource SecondGreen}" Padding="20">
+        <Button Style="{StaticResource mainButton}" Text="Trocar Senha">
+            <Button.ImageSource>
+                <FontImageSource 
+                    FontFamily="MaterialIcons" 
+                    Glyph="{icons:Material Icon=Notifications}" 
+                    Color="{StaticResource Primary}" 
+                    Size="20" />
+            </Button.ImageSource>
+        </Button>
+        <Button Style="{StaticResource mainButton}" Text="Trocar E-mail">
+            <Button.ImageSource>
+                <FontImageSource 
+                    FontFamily="MaterialIcons" 
+                    Glyph="{icons:Material Icon=Email}" 
+                    Color="{StaticResource Primary}" 
+                    Size="20" />
+            </Button.ImageSource>
+        </Button>
+        <Button Style="{StaticResource mainButton}" Text="Endereço">
+            <Button.ImageSource>
+                <FontImageSource 
+                    FontFamily="MaterialIcons" 
+                    Glyph="{icons:Material Icon=LocationOn}" 
+                    Color="{StaticResource Primary}" 
+                    Size="20" />
+            </Button.ImageSource>
+        </Button>
+        <Button Style="{StaticResource mainButton}" Text="Empresa Agendada">
+            <Button.ImageSource>
+                <FontImageSource 
+                    FontFamily="MaterialIcons" 
+                    Glyph="{icons:Material Icon=Event}" 
+                    Color="{StaticResource Primary}" 
+                    Size="20" />
+            </Button.ImageSource>
+        </Button>
+
+        <Frame Style="{StaticResource mainFrame}">
+            <VerticalStackLayout>
+                <Button Style="{StaticResource mainButton}" Text="Ajuda">
+                    <Button.ImageSource>
+                        <FontImageSource 
+                            FontFamily="MaterialIcons" 
+                            Glyph="{icons:Material Icon=Help}" 
+                            Color="{StaticResource Primary}" 
+                            Size="20" />
+                    </Button.ImageSource>
+                </Button>
+                <Button Style="{StaticResource mainButton}" Text="Sobre">
+                    <Button.ImageSource>
+                        <FontImageSource 
+                            FontFamily="MaterialIcons" 
+                            Glyph="{icons:Material Icon=Info}" 
+                            Color="{StaticResource Primary}" 
+                            Size="20" />
+                    </Button.ImageSource>
+                </Button>
+                <Button Style="{StaticResource mainButton}" Text="Sair">
+                    <Button.ImageSource>
+                        <FontImageSource 
+                            FontFamily="MaterialIcons" 
+                            Glyph="{icons:Material Icon=ExitToApp}" 
+                            Color="{StaticResource Primary}" 
+                            Size="20" />
+                    </Button.ImageSource>
+                </Button>
+            </VerticalStackLayout>
+            
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>
