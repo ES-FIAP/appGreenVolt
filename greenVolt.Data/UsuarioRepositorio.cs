@@ -1,26 +1,21 @@
 ﻿using greenVolt.Data.Interfaces;
 using greenVolt.Dominio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static greenVolt.Data.Interfaces.IUsuarioRepositorio;
 
 namespace greenVolt.Data
 {
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
-        private readonly GreenVoltDbContext _context;
+        private readonly Connection _context;
 
-        public UsuarioRepositorio(GreenVoltDbContext context)
+        public UsuarioRepositorio(Connection context)
         {
             _context = context;
         }
         
         public Usuario ObterPorEmail(string email)
         {
-            return _context.Usuarios.FirstOrDefault(u => u.Email == email);
+            return _context.Usuarios.FirstOrDefault(u => u.email == email);
         }
 
         public void Adicionar(Usuario usuario)
@@ -31,7 +26,7 @@ namespace greenVolt.Data
 
         public bool ExisteEmail(string email)
         {
-            return _context.Usuarios.Any(u => u.Email == email);
+            return _context.Usuarios.Any(u => u.email == email);
         }
 
         public Usuario ObterPorId(int id)
@@ -59,16 +54,16 @@ namespace greenVolt.Data
     // ENDEREÇO //
     public class EnderecoRepositorio : IEnderecoRepositorio_Usuario
     {
-        private readonly GreenVoltDbContext _context;
+        private readonly Connection _context;
 
-        public EnderecoRepositorio(GreenVoltDbContext context)
+        public EnderecoRepositorio(Connection context)
         {
             _context = context;
         }
 
         public Endereco ObterPorUsuario(int idUsuario)
         {
-            return _context.Enderecos.FirstOrDefault(e => e.IdUsuario == idUsuario);
+            return _context.Enderecos.FirstOrDefault(e => e.id_usuario == idUsuario);
         }
 
         public void Atualizar(Endereco endereco)
@@ -82,9 +77,9 @@ namespace greenVolt.Data
     // AGENDAMENTO //
     public class AgendamentoRepositorio : IAgendamentoRepositorio_Usuario
     {
-        private readonly GreenVoltDbContext _context;
+        private readonly Connection _context;
 
-        public AgendamentoRepositorio(GreenVoltDbContext context)
+        public AgendamentoRepositorio(Connection context)
         {
             _context = context;
         }
@@ -92,8 +87,8 @@ namespace greenVolt.Data
         public Agendamento ObterMaisRecentePorUsuario(int idUsuario)
         {
             return _context.Agendamentos
-                .Where(a => a.IdUsuario == idUsuario)
-                .OrderByDescending(a => a.DataAgendamento)
+                .Where(a => a.id_usuario == idUsuario)
+                .OrderByDescending(a => a.data_agendamento)
                 .FirstOrDefault();
         }
 
@@ -111,12 +106,12 @@ namespace greenVolt.Data
 
         public Agendamento ObterPorId(int idAgendamento)
         {
-            return _context.Agendamentos.FirstOrDefault(a => a.IdAgendamento == idAgendamento);
+            return _context.Agendamentos.FirstOrDefault(a => a.id_agendamento == idAgendamento);
         }
 
         public IEnumerable<Agendamento> ObterPorUsuario(int idUsuario)
         {
-            return _context.Agendamentos.Where(a => a.IdUsuario == idUsuario).ToList();
+            return _context.Agendamentos.Where(a => a.id_usuario == idUsuario).ToList();
         }
 
     }

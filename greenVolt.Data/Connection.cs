@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using static greenVolt.Dominio.Favoritos;
 using Npgsql;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure;
 
 namespace greenVolt.Data
 {
     
-    public class Connection : DbContext
+    public class Connection(DbContextOptions<Connection> options) : DbContext(options)
     {
 
-        public Connection(DbContextOptions<Connection> options)
-           : base(options) { }
-
+        private string connectionString = "Host=fiap.audracs.com.br;Port=5234;Username=postgres;Password=Jyxi0Pv0PzSqRLc54pMg9NANKkh;Database=global_solution_green_energy_2024;";
 
         // Cada DbSet Mapeia uma entidade para uma tabela no banco de dados.
         public DbSet<Usuario> Usuarios { get; set; } // DbSet<Usuario> para a tabela TAB_USUARIO.
@@ -26,11 +25,13 @@ namespace greenVolt.Data
         public DbSet<Agendamento> Agendamentos { get; set; }
 
 
-
-        string connectionString = "Host=localhost;Port=5432;Username=your_user;Password=your_password;Database=your_database;";
-        
-
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql(connectionString);
+            }
+        }
 
     }
 }

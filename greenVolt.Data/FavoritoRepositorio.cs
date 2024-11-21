@@ -10,9 +10,9 @@ namespace greenVolt.Data
 {
     public class FavoritoRepositorio : IFavoritoRepositorio
     {
-        private readonly GreenVoltDbContext _context;
+        private readonly Connection _context;
 
-        public FavoritoRepositorio(GreenVoltDbContext context)
+        public FavoritoRepositorio(Connection context)
         {
             _context = context;
         }

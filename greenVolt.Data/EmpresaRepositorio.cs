@@ -5,21 +5,22 @@ using System.Text;
 using greenVolt.Dominio;
 using System.Threading.Tasks;
 using greenVolt.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace greenVolt.Data
 {
-    internal class EmpresaRepositorio : IEmpresaRepositorio
+    public class EmpresaRepositorio : IEmpresaRepositorio
     {
-        private readonly GreenVoltDbContext _context;
+        private readonly Connection _context;
 
-        public EmpresaRepositorio(GreenVoltDbContext context)
+        public EmpresaRepositorio(Connection context)
         {
             _context = context;
         }
 
-        public IEnumerable<Empresa> ObterTodas()
+        public async Task<IEnumerable<Empresa>> ObterTodas()
         {
-            return _context.Empresas.ToList();
+          return await _context.Empresas.ToListAsync();
         }
 
         public IEnumerable<Empresa> Filtrar(string filtro, string valor)
@@ -28,7 +29,7 @@ namespace greenVolt.Data
             return filtro.ToLower() switch
             {
                 //"nome" => _context.Empresas.Where(e => e.Nome.Contains(valor)).ToList(),
-                "origem_energia" => _context.Empresas.Where(e => e.Origem_Energia.Contains(valor)).ToList(),
+                "origem_energia" => _context.Empresas.Where(e => e.origem_energia.Contains(valor)).ToList(),
                 _ => _context.Empresas.ToList()
 
             };
@@ -42,10 +43,13 @@ namespace greenVolt.Data
 
         public Empresa ObterPorId(int id_empresa)
         {
-            return _context.Empresa.Find(id_empresa);
+            return _context.Empresas.Find(id_empresa);
         }
 
-
+        public IEnumerable<Empresa> ObterTodasAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

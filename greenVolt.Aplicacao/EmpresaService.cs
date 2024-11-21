@@ -18,11 +18,10 @@ namespace greenVolt.Aplicacao
             _empresaRepositorio = empresaRepositorio;
         }
 
-        public IEnumerable<Empresa> ListarEmpresas()
+        public async Task<IEnumerable<Empresa>> ObterTodas()
         {
-            return _empresaRepositorio.ObterTodas();
+            return await _empresaRepositorio.ObterTodas();
         }
-
         public IEnumerable<Empresa> FiltrarEmpresas(string filtro, string valor)
         {
             return _empresaRepositorio.Filtrar(filtro, valor);
