@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.ConstrainedExecution;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace greenVolt.Dominio
 {
@@ -13,9 +14,10 @@ namespace greenVolt.Dominio
     [Table("TAB_ENDERECO")]
     public class Endereco
     {
-
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id_endereco { get; set; }
+        [SwaggerSchema(ReadOnly = true)]
+        public int id { get; set; }
 
         [Required]
         public int id_usuario { get; set; }

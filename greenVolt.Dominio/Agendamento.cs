@@ -11,8 +11,9 @@ namespace greenVolt.Dominio
     [Table("TAB_AGENDAMENTO")]
     public class Agendamento
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id_agendamento { get; set; }
+        public int id { get; set; }
 
         [Required]
         public int id_usuario { get; set; }

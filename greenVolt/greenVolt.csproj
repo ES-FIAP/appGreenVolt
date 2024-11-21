@@ -40,7 +40,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\applogo.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -63,9 +63,6 @@
 	  <MauiImage Include="Resources\AppIcon\icon_google.png" />
 	  <MauiImage Include="Resources\AppIcon\iconsum.png" />
 	  <MauiImage Include="Resources\AppIcon\iconwater.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\sharedLib\sharedLib.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -104,6 +101,10 @@
 	  <MauiXaml Update="Pages\Register.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Platforms\Android\Resources\mipmap\" />
 	</ItemGroup>
 
 </Project>

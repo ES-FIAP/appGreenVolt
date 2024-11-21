@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace greenVolt.Dominio
 {
@@ -14,7 +15,8 @@ namespace greenVolt.Dominio
     public class Empresa
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [SwaggerSchema(ReadOnly = true)]
         public int id_empresa { get; set; }
 
         [Required(ErrorMessage = "O nome da empresa é obrigatório.")]

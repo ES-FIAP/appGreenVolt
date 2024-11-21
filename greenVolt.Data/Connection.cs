@@ -31,6 +31,33 @@ namespace greenVolt.Data
             {
                 optionsBuilder.UseNpgsql(connectionString);
             }
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Empresa>()
+                .Property(e => e.id_empresa)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Usuario>()
+               .Property(e => e.id)
+               .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Agendamento>(entity =>
+            {
+                entity.HasKey(e => e.id); 
+            });
+
+            modelBuilder.Entity<Favorito>(entity =>
+            {
+                entity.HasKey(e => e.id);
+            });
+
+            modelBuilder.Entity<Endereco>(entity =>
+            {
+                entity.HasKey(e => e.id);
+            });
         }
 
     }

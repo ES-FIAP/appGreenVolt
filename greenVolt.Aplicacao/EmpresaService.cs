@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using greenVolt.Dominio;
 using System.Collections.Generic;
 using greenVolt.Data.Interfaces;
+using greenVolt.Data;
 
 namespace greenVolt.Aplicacao
 {
@@ -22,15 +23,34 @@ namespace greenVolt.Aplicacao
         {
             return await _empresaRepositorio.ObterTodas();
         }
-        public IEnumerable<Empresa> FiltrarEmpresas(string filtro, string valor)
+
+        public async Task<Empresa> ObterPorId(int id)
         {
-            return _empresaRepositorio.Filtrar(filtro, valor);
+            return await _empresaRepositorio.ObterPorId(id);
+        }
+        public async Task<IEnumerable<Empresa>> FiltrarEmpresas(string filtro, string valor)
+        {
+            return await _empresaRepositorio.Filtrar(filtro, valor);
         }
 
-        public void InserirEmpresa(string nome, string cnpj, string contato, string descricao, string categoria, string localizacao, string origem_energia, double valor)
+        public async Task<Empresa> Adicionar(Empresa novaEmpresa)
         {
-            var empresa = Empresa.Criar_Empresa(nome, cnpj, contato, descricao, categoria, origem_energia,valor);
-            _empresaRepositorio.Adicionar(empresa);
+            if (novaEmpresa == null)
+                throw new ArgumentNullException(nameof(novaEmpresa), "A empresa não pode ser nula.");
+
+            if (string.IsNullOrWhiteSpace(novaEmpresa.nome_empresa))
+                throw new ArgumentException("O nome da empresa é obrigatório.", nameof(novaEmpresa.nome_empresa));
+
+            if (string.IsNullOrWhiteSpace(novaEmpresa.cnpj))
+                throw new ArgumentException("O CNPJ da empresa é obrigatório.", nameof(novaEmpresa.cnpj));
+
+            var empresasExistentes = await _empresaRepositorio.Filtrar("cnpj", novaEmpresa.cnpj);
+            if (empresasExistentes.Any())
+                throw new InvalidOperationException("Já existe uma empresa cadastrada com este CNPJ.");
+
+            await _empresaRepositorio.Adicionar(novaEmpresa);
+
+            return novaEmpresa; 
         }
     }
 }

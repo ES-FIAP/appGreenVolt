@@ -23,33 +23,34 @@ namespace greenVolt.Data
           return await _context.Empresas.ToListAsync();
         }
 
-        public IEnumerable<Empresa> Filtrar(string filtro, string valor)
+        public async Task<IEnumerable<Empresa>> Filtrar(string filtro, string valor)
         {
+            if (string.IsNullOrWhiteSpace(filtro) || string.IsNullOrWhiteSpace(valor)) return await _context.Empresas.ToListAsync();
+            
             // Exemplo básico de filtro por nome ou origem_energia.
             return filtro.ToLower() switch
             {
                 //"nome" => _context.Empresas.Where(e => e.Nome.Contains(valor)).ToList(),
-                "origem_energia" => _context.Empresas.Where(e => e.origem_energia.Contains(valor)).ToList(),
-                _ => _context.Empresas.ToList()
+                "origem_energia" => await _context.Empresas.Where(e => e.origem_energia.Contains(valor)).ToListAsync(),
+                _ => await _context.Empresas.ToListAsync()
 
             };
         }
 
-        public void Adicionar(Empresa empresa)
+        public async Task Adicionar(Empresa empresa)
         {
-            _context.Empresas.Add(empresa);
-            _context.SaveChanges();
+            if (empresa == null)
+                throw new ArgumentNullException(nameof(empresa));
+
+            await _context.Empresas.AddAsync(empresa);
+            await _context.SaveChangesAsync();
         }
 
-        public Empresa ObterPorId(int id_empresa)
+        public async Task<Empresa> ObterPorId(int id_empresa)
         {
-            return _context.Empresas.Find(id_empresa);
+            return await _context.Empresas.FirstOrDefaultAsync(e => e.id_empresa == id_empresa);
         }
 
-        public IEnumerable<Empresa> ObterTodasAsync()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

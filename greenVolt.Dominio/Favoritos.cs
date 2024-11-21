@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace greenVolt.Dominio
 {
@@ -13,8 +14,9 @@ namespace greenVolt.Dominio
         [Table("TAB_FAVORITO")] 
         public class Favorito
         {
+            [SwaggerSchema(ReadOnly = true)]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
-            public int IdFavorito { get; set; }
+            public int id { get; set; }
 
             [Required]
             public int IdUsuario { get; set; } 

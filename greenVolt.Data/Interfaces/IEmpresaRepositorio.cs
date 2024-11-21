@@ -10,10 +10,11 @@ namespace greenVolt.Data.Interfaces
     public interface IEmpresaRepositorio
     {
         Task<IEnumerable<Empresa>> ObterTodas();
-        IEnumerable<Empresa> Filtrar(string filtro, string valor);
-        void Adicionar(Empresa empresa);
+        Task<IEnumerable<Empresa>> Filtrar(string filtro, string valor);
+        Task Adicionar(Empresa empresa);
 
-        Empresa ObterPorId(int id_empresa); // Buscar empresa por ID
+        Task<Empresa> ObterPorId(int id_empresa); // Buscar empresa por ID
 
     }
 }
+

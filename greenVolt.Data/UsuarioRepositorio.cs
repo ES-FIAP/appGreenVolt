@@ -106,7 +106,7 @@ namespace greenVolt.Data
 
         public Agendamento ObterPorId(int idAgendamento)
         {
-            return _context.Agendamentos.FirstOrDefault(a => a.id_agendamento == idAgendamento);
+            return _context.Agendamentos.FirstOrDefault(a => a.id == idAgendamento);
         }
 
         public IEnumerable<Agendamento> ObterPorUsuario(int idUsuario)

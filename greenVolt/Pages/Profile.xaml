@@ -23,11 +23,32 @@
     </ContentPage.Resources>
 
     <VerticalStackLayout BackgroundColor="{StaticResource SecondGreen}" Padding="20">
+        <Frame 
+            WidthRequest="100" 
+            HeightRequest="100" 
+            CornerRadius="50" 
+            Padding="0" 
+            BorderColor="Gray" 
+            BackgroundColor="White">
+            <Image Source="user.png" Aspect="AspectFill" />
+        </Frame>
+        <FlexLayout Direction="Row" AlignContent="Center" AlignItems="Center" HorizontalOptions="Center" Margin="0,15,0,15">
+            <Label Text="User name" HorizontalOptions="Center" TextColor="White"/>
+            <Button BackgroundColor="Transparent">
+                <Button.ImageSource>
+                    <FontImageSource 
+              FontFamily="MaterialIcons" 
+              Glyph="{icons:Material Icon=Edit}" 
+              Color="white" 
+              Size="20" />
+                </Button.ImageSource>
+            </Button>
+        </FlexLayout>
         <Button Style="{StaticResource mainButton}" Text="Trocar Senha">
             <Button.ImageSource>
                 <FontImageSource 
                     FontFamily="MaterialIcons" 
-                    Glyph="{icons:Material Icon=Notifications}" 
+                    Glyph="{icons:Material Icon=Edit}" 
                     Color="{StaticResource Primary}" 
                     Size="20" />
             </Button.ImageSource>

@@ -9,12 +9,26 @@ builder.WebHost.ConfigureKestrel(options =>
 {
     options.ConfigureHttpsDefaults(config =>
     {
-        // Não configuramos SSL aqui, o que desativa o uso de HTTPS
+       
+    });
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+});
+
 
 
 builder.Services.AddDbContext<Connection>(options =>
@@ -33,6 +47,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowAll");
 app.UseRouting();
 app.MapControllers();
 app.Run();

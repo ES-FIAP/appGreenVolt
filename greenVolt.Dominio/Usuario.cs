@@ -6,14 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace greenVolt.Dominio
 {
     [Table("TAB_USUARIO")] 
     public class Usuario
     {
+        [SwaggerSchema(ReadOnly = true)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
-        public int id_usuario { get; set; }
+        public int id { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório.")]
         public string nome { get; set; }
