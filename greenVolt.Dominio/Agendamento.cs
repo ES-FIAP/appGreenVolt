@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace greenVolt.Dominio
 {
-    [Table("TAB_AGENDAMENTO")]
+    [Table("tab_agendamento")]
     public class Agendamento
     {
         [Key]

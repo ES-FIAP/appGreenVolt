@@ -11,7 +11,7 @@ namespace greenVolt.Dominio
 {
     public  class Favoritos
     {
-        [Table("TAB_FAVORITO")] 
+        [Table("tab_favorito")] 
         public class Favorito
         {
             [SwaggerSchema(ReadOnly = true)]

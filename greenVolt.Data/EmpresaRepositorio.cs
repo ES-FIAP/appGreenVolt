@@ -31,7 +31,7 @@ namespace greenVolt.Data
             return filtro.ToLower() switch
             {
                 //"nome" => _context.Empresas.Where(e => e.Nome.Contains(valor)).ToList(),
-                "origem_energia" => await _context.Empresas.Where(e => e.origem_energia.Contains(valor)).ToListAsync(),
+                "tipo_origem_energia" => await _context.Empresas.Where(e => e.tipo_origem_energia.Contains(valor)).ToListAsync(),
                 _ => await _context.Empresas.ToListAsync()
 
             };

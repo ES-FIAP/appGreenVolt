@@ -1,12 +1,16 @@
 using greenVolt.Models;
+using greenVolt.Services;
 
 namespace greenVolt.Pages;
 
 public partial class Enterprises : ContentPage
 {
-	public Enterprises()
+
+    private readonly ApiService _apiService;
+    public Enterprises(ApiService apiService)
 	{
 		InitializeComponent();
-        BindingContext = new MainViewModel();
+        BindingContext = new MainViewModel(apiService);
     }
+    
 }

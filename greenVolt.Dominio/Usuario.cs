@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace greenVolt.Dominio
 {
-    [Table("TAB_USUARIO")] 
+    [Table("tab_usuario")] 
     public class Usuario
     {
         [SwaggerSchema(ReadOnly = true)]

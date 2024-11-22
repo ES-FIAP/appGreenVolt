@@ -36,9 +36,14 @@ namespace greenVolt.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Empresa>()
                 .Property(e => e.id_empresa)
                 .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Empresa>()
+            .Property(e => e.criado_em)
+            .HasDefaultValueSql("NOW()");
 
             modelBuilder.Entity<Usuario>()
                .Property(e => e.id)

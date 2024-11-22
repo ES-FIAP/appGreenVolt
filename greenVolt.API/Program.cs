@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ConfigureHttpsDefaults(config =>
@@ -38,7 +39,12 @@ builder.Services.AddScoped<EmpresaService>();
 builder.Services.AddScoped<IEmpresaRepositorio, EmpresaRepositorio>();
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+        options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())

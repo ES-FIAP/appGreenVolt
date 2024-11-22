@@ -8,10 +8,14 @@ namespace greenVolt.Models
 {
     public class Company
     {
-        public string ImageUrl { get; set; } 
+        public int CompanyId { get; set; } 
         public string Name { get; set; } 
-        public string Description { get; set; }
-        public string Price { get; set; } 
-        public string BadgeText { get; set; } // Texto do selo (opcional)
+        public string TaxId { get; set; } 
+        public string Description { get; set; } 
+        public string Category { get; set; } 
+        public string Contact { get; set; } 
+        public DateTime CreatedAt { get; set; } 
+        public string EnergySourceType { get; set; } 
+        public double Price { get; set; } 
     }
 }

@@ -1,36 +1,48 @@
-﻿using System;
+﻿using greenVolt.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+
 
 namespace greenVolt.Models
 {
-    public class MainViewModel
+    public class MainViewModel: BaseViewModel
     {
+        private readonly ApiService _apiService;
         public ObservableCollection<Company> Companies { get; set; }
-        public MainViewModel()
+        public MainViewModel(ApiService apiService)
         {
-            Companies = new ObservableCollection<Company>
-        {
-            new Company
-            {
-                Name = "NeoEnergia",
-                Description = "Energia solar para sua casa",
-                Price = "R$ 500,00",
-                BadgeText = "Promoção",
-                ImageUrl = "sumpanel.png"
-            },
-            new Company
-            {
-                Name = "SolarPower",
-                Description = "Soluções de energia renovável",
-                Price = "R$ 700,00",
-                BadgeText = "Desconto",
-                ImageUrl = "sumpanel.png"
-            }
-        };
+            _apiService = apiService;
+
         }
+private async void LoadCompanies()
+        {
+        {
+            try
+            {
+                 IsBusy = true;
+                var companies = await _apiService.GetEmpresasAsync();
+
+                Companies.Clear();
+                foreach (var company in companies)
+                {
+                    Companies.Add(company);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao carregar empresas: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+    }
     }
 }

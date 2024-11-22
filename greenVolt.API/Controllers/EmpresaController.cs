@@ -36,7 +36,7 @@ namespace greenVolt.API.Controllers
             try
             {
                 var empresaCriada = await _service.Adicionar(novaEmpresa);
-                return CreatedAtAction(nameof(GetById), new { id = empresaCriada.id_empresa }, empresaCriada);
+                return Ok(empresaCriada);
             }
             catch (ArgumentException ex)
             {
@@ -48,7 +48,7 @@ namespace greenVolt.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { mensagem = "Erro interno do servidor.", detalhe = ex.Message });
+                return StatusCode(500, new { mensagem = "Erro interno do servidor.", detalhe = ex.InnerException });
             }
         }
 

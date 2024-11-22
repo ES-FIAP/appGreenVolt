@@ -11,7 +11,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace greenVolt.Dominio
 {
 
-    [Table("TAB_ENDERECO")]
+    [Table("tab_endereco")]
     public class Endereco
     {
         [Key]

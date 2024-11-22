@@ -10,7 +10,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace greenVolt.Dominio
 {
-    [Table("TAB_EMPRESAS")] 
+    [Table("tab_empresas")] 
 
     public class Empresa
     {
@@ -33,11 +33,12 @@ namespace greenVolt.Dominio
 
         public string contato { get; set; }
 
-        [DataType(DataType.Date)]
+        [SwaggerSchema(ReadOnly = true)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime criado_em { get; set; } = DateTime.UtcNow;
 
         [StringLength(100, ErrorMessage = "O tipo de origem de energia não pode exceder 100 caracteres.")]
-        public string origem_energia { get; set; }
+        public string tipo_origem_energia { get; set; }
 
         public double valor { get; set; }
 
@@ -53,7 +54,7 @@ namespace greenVolt.Dominio
                 throw new ArgumentException("O CNPJ deve conter 14 dígitos.");
         }
 
-        public static Empresa Criar_Empresa(string nome, string cnpj, string contato, string descricao, string categoria, string origem_energia, double valor)
+        public static Empresa Criar_Empresa(string nome, string cnpj, string contato, string descricao, string categoria, string tipo_origem_energia, double valor)
         {
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException("O nome da empresa é obrigatório.");
@@ -67,7 +68,7 @@ namespace greenVolt.Dominio
                 contato = contato,
                 descricao = descricao,
                 categoria = categoria,
-                origem_energia = origem_energia,
+                tipo_origem_energia = tipo_origem_energia,
                 valor = valor
 
             };

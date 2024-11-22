@@ -44,9 +44,9 @@ namespace greenVolt.Aplicacao
             if (string.IsNullOrWhiteSpace(novaEmpresa.cnpj))
                 throw new ArgumentException("O CNPJ da empresa é obrigatório.", nameof(novaEmpresa.cnpj));
 
-            var empresasExistentes = await _empresaRepositorio.Filtrar("cnpj", novaEmpresa.cnpj);
-            if (empresasExistentes.Any())
-                throw new InvalidOperationException("Já existe uma empresa cadastrada com este CNPJ.");
+            //var empresasExistentes = await _empresaRepositorio.Filtrar("cnpj", novaEmpresa.cnpj);
+            //if (empresasExistentes.Any())
+            //    throw new InvalidOperationException("Já existe uma empresa cadastrada com este CNPJ.");
 
             await _empresaRepositorio.Adicionar(novaEmpresa);
 
